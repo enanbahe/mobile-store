@@ -8,7 +8,7 @@ pipeline {
     AWS_REGION = 'us-east-1'
     REPO_NAME = 'mobile-store'
     REPO_URL = '641665903019.dkr.ecr.us-east-1.amazonaws.com'
-    BUILD_ENV_DOCKER_PATH = './environments/build/'
+    BUILD_ENV_DOCKER_PATH = '/var/jenkins_home/${JOB_NAME}/environments/build/'
   }
 
   stages {

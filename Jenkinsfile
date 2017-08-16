@@ -13,6 +13,9 @@ pipeline {
 
   stages {
     stage('build-env') {
+      when {
+        branch 'build-env'
+      }
       steps {
         export AWS_DEFAULT_REGION=$AWS_REGION
         aws ecr create-repository --repository-name $REPO_NAME:MAJOR_VERSION.${BUILD_NUMBER}

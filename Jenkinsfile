@@ -20,8 +20,7 @@ pipeline {
       }
       steps {
         sh 'aws --version'
-        sh 'export AWS_DEFAULT_REGION=$AWS_REGION && aws ecr describe-repositories' 
-        sh 'aws ecr create-repository --repository-name $REPO_NAME'
+        sh 'export AWS_DEFAULT_REGION=$AWS_REGION && aws ecr describe-repositories && aws ecr create-repository --repository-name $REPO_NAME'
         sh '$(aws ecr get-login --no-include-email --region $AWS_REGION)'
         sh 'docker build -t $REPO_FULL_NAME ${BUILD_ENV_DOCKER_PATH}'
         sh 'docker tag $REPO_FULL_NAME $REPO_URL'

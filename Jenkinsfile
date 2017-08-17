@@ -20,6 +20,8 @@ pipeline {
       }
       steps {
         sh 'aws --version'
+        sh 'aws configure set aws_access_key_id AKIAJTUECHKI2VMKFFRQ'
+        sh 'aws configure set aws_secret_access_key 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'
         sh 'aws configure set default.region $AWS_REGION'
         sh 'aws ecr describe-repositories' 
         sh 'aws ecr create-repository --repository-name $REPO_NAME'

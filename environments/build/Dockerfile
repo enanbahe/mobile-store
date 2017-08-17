@@ -1,4 +1,4 @@
-FROM devops/jenkins-node
+FROM 641665903019.dkr.ecr.us-east-1.amazonaws.com/devops/jenkins-node
 MAINTAINER Enrique Bassallo <enanbahe@hotmail.com>
 
 USER root

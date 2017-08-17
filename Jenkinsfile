@@ -19,11 +19,13 @@ pipeline {
         branch 'build-env'
       }
       steps {
-        echo '$REPO_FULL_NAME'
-        echo '$REPO_URL'
-        echo '$REPO_NAME:$MAJOR_VERSION.$BUILD_NUMBER'
-        echo '${ECR_URL}/${REPO_FULL_NAME}'
-        echo '${ECR_URL}/$REPO_NAME:$MAJOR_VERSION.$BUILD_NUMBER'
+        sh "echo '${REPO_NAME}'"
+        sh "echo '${ECR_URL}'"
+        sh "echo '$REPO_FULL_NAME'"
+        sh "echo '$REPO_URL'"
+        sh "echo '$REPO_NAME:$MAJOR_VERSION.$BUILD_NUMBER'"
+        sh "echo '${ECR_URL}/${REPO_FULL_NAME}'"
+        sh "echo '${ECR_URL}/$REPO_NAME:$MAJOR_VERSION.$BUILD_NUMBER'"
       }      
     }
   }

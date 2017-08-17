@@ -8,8 +8,8 @@ pipeline {
     AWS_REGION = 'us-east-1'
     REPO_NAME = 'projects/mobile-store'
     ECR_URL = '641665903019.dkr.ecr.us-east-1.amazonaws.com'    
-    REPO_FULL_NAME = '$REPO_NAME:$MAJOR_VERSION.$BUILD_NUMBER'
-    REPO_URL = '$ECR_URL/$REPO_FULL_NAME'
+    REPO_FULL_NAME = '${REPO_NAME}:${MAJOR_VERSION}.${BUILD_NUMBER}'
+    REPO_URL = '${ECR_URL}/${REPO_FULL_NAME}'
     BUILD_ENV_DOCKER_PATH = './environments/build/'
   }
 
@@ -20,6 +20,10 @@ pipeline {
       }
       steps {
         echo '$REPO_FULL_NAME'
+        echo '$REPO_URL'
+        echo '$REPO_NAME:$MAJOR_VERSION.$BUILD_NUMBER'
+        echo '${ECR_URL}/${REPO_FULL_NAME}'
+        echo '${ECR_URL}/$REPO_NAME:$MAJOR_VERSION.$BUILD_NUMBER'
       }      
     }
   }
